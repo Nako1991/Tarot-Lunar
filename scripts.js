@@ -34,8 +34,8 @@ const TarotCard = (function() {
   
   // Función para desplazarse a la segunda sección
   function scrollToSection() {
-    const secondSection = document.getElementById("second-section");
-    secondSection.scrollIntoView({ behavior: "smooth" });
+    const readingsSection = document.getElementById("readings-section");
+    readingsSection.scrollIntoView({ behavior: "smooth" });
   }
   
   // Inicialización

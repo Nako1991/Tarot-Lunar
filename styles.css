@@ -74,19 +74,6 @@ body, html {
   transform: rotateY(180deg);
 }
 
-/* Segunda sección para scroll */
-/* .second-section {
-  height: 100vh;
-  background-color: #111;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 20px;
-  text-align: center;
-} */
-
 /* Sección de Tiradas */
 .readings-section {
   padding: 2rem;
