@@ -71,5 +71,24 @@ const App = (function() {
   };
 })();
 
+document.querySelectorAll('.reading-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const readingType = btn.dataset.reading;
+    const cardSlots = document.querySelectorAll('.card-slot');
+    
+    // Limpiar slots antes de nueva tirada
+    cardSlots.forEach(slot => slot.innerHTML = '');
+    
+    // Ejemplo: Lógica para mostrar cartas (adaptar a tu sistema)
+    if (readingType === '1') {
+      cardSlots[0].innerHTML = '<div class="card">CARTA 1</div>';
+    } else if (readingType === '2') {
+      cardSlots[0].innerHTML = '<div class="card">CARTA A</div>';
+      cardSlots[1].innerHTML = '<div class="card">CARTA B</div>';
+    }
+    // ... agregar más condiciones según cada tirada
+  });
+});
+
 // Iniciar la aplicación
 App.init();
