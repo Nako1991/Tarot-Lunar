@@ -1,5 +1,6 @@
 /* Fondo general */
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -28,6 +29,7 @@ body, html {
   from {
     transform: rotateY(0deg);
   }
+
   to {
     transform: rotateY(360deg);
   }
@@ -37,6 +39,7 @@ body, html {
   from {
     transform: rotateY(0deg);
   }
+
   to {
     transform: rotateY(360deg);
   }
@@ -62,7 +65,7 @@ body, html {
   background-position: center;
   backface-visibility: hidden;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .card-front {
@@ -77,26 +80,38 @@ body, html {
 /* --- Pestañas --- */
 .tabs {
   display: flex;
-  justify-content: stretch; /* Cambiado de center a stretch */
-  gap: 0; /* Eliminamos el gap para que ocupen todo el espacio */
-  margin: 2rem 0; /* Eliminamos el margen horizontal */
-  width: 100%; /* Ocupa todo el ancho */
-  flex-wrap: nowrap; /* Evita que se rompa en múltiples líneas */
+  background: rgba(26, 5, 37, 0.8);
+  justify-content: stretch;
+  /* Cambiado de center a stretch */
+  gap: 0;
+  /* Eliminamos el margen horizontal */
+  width: 100%;
+  /* Ocupa todo el ancho */
+  flex-wrap: nowrap;
+  /* Evita que se rompa en múltiples líneas */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid #d4af37;
 }
 
 .tab {
-  flex: 1; /* Hace que cada pestaña crezca equitativamente */
-  padding: 0.8rem 0.5rem; /* Reducimos el padding horizontal */
-  text-align: center; /* Centramos el texto */
+  flex: 1;
+  /* Hace que cada pestaña crezca equitativamente */
+  padding: 0.8rem 0.5rem;
+  /* Reducimos el padding horizontal */
+  text-align: center;
+  /* Centramos el texto */
   background: #1a0525;
   color: #d4af37;
   border: 1px solid #d4af37;
-  border-radius: 0; /* Eliminamos bordes redondeados para estilo navegador */
+  border-radius: 0;
+  /* Eliminamos bordes redondeados para estilo navegador */
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s;
-  margin: 0; /* Eliminamos márgenes */
-  border-bottom: 2px solid transparent; /* Preparamos para el estado activo */
+  margin: 0;
+  /* Eliminamos márgenes */
+  border-bottom: 2px solid transparent;
+  /* Preparamos para el estado activo */
 }
 
 .tab:hover {
@@ -113,8 +128,10 @@ body, html {
 .tab-content {
   display: none;
   padding: 1rem;
+  margin: 0 auto;
   background: rgba(26, 5, 37, 0.8);
-  border-radius: 0 0 8px 8px; /* Ajustamos bordes redondeados */
+  border-radius: 0 0 8px 8px;
+  /* Ajustamos bordes redondeados */
   animation: fadeIn 0.5s ease-out;
 }
 
@@ -123,27 +140,42 @@ body, html {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 600px) {
-  .tabs { flex-direction: column; }
-  .tab { border-radius: 4px; }
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tab {
+    border-radius: 4px;
+  }
 }
 
 /* Ajustes para móviles */
 @media (max-width: 600px) {
-  .tabs { 
-    flex-direction: row; /* Mantenemos horizontal en móviles */
-    overflow-x: auto; /* Permite scroll horizontal si hay muchas pestañas */
+  .tabs {
+    flex-direction: row;
+    /* Mantenemos horizontal en móviles */
+    overflow-x: auto;
+    /* Permite scroll horizontal si hay muchas pestañas */
     -webkit-overflow-scrolling: touch;
   }
-  
+
   .tab {
-    min-width: 120px; /* Ancho mínimo para móviles */
-    white-space: nowrap; /* Evita que el texto se rompa */
-    padding: 0.8rem 0.3rem; /* Padding reducido */
+    min-width: 120px;
+    /* Ancho mínimo para móviles */
+    white-space: nowrap;
+    /* Evita que el texto se rompa */
+    padding: 0.8rem 0.3rem;
+    /* Padding reducido */
     font-size: 0.9rem;
   }
 }
@@ -160,11 +192,11 @@ body, html {
   width: 120px;
   height: 180px;
   background: rgba(0, 0, 0, 0.3);
-  border: 1px dashed #d4af37; /* Borde dorado */
+  border: 1px dashed #d4af37;
+  /* Borde dorado */
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #d4af37;
 }
-
