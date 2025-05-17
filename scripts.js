@@ -32,7 +32,7 @@ const TarotCard = (function() {
     }, 900);
   }
   
-  // Función para desplazarse a la segunda sección
+  // Función para desplazarse a la sección de tiradas
   function scrollToSection() {
     const readingsSection = document.getElementById("readings-section");
     readingsSection.scrollIntoView({ behavior: "smooth" });
@@ -71,22 +71,18 @@ const App = (function() {
   };
 })();
 
-document.querySelectorAll('.reading-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const readingType = btn.dataset.reading;
-    const cardSlots = document.querySelectorAll('.card-slot');
+// Alternar pestañas
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    // Remover clase 'active' de todas las pestañas y contenidos
+    document.querySelectorAll('.tab, .tab-content').forEach(el => {
+      el.classList.remove('active');
+    });
     
-    // Limpiar slots antes de nueva tirada
-    cardSlots.forEach(slot => slot.innerHTML = '');
-    
-    // Ejemplo: Lógica para mostrar cartas (adaptar a tu sistema)
-    if (readingType === '1') {
-      cardSlots[0].innerHTML = '<div class="card">CARTA 1</div>';
-    } else if (readingType === '2') {
-      cardSlots[0].innerHTML = '<div class="card">CARTA A</div>';
-      cardSlots[1].innerHTML = '<div class="card">CARTA B</div>';
-    }
-    // ... agregar más condiciones según cada tirada
+    // Activar la pestaña clickeada y su contenido
+    tab.classList.add('active');
+    const tabId = tab.dataset.tab;
+    document.querySelector(`.tab-content[data-tab-content="${tabId}"]`).classList.add('active');
   });
 });
 

@@ -18,23 +18,31 @@
   </section>
 
   <section class="readings-section">
-  <h2>Tiradas de Tarot</h2>
-  <div class="readings-grid">
-    <!-- Botones de tiradas -->
-    <button class="reading-btn" data-reading="1">TIRADA 1</button>
-    <button class="reading-btn" data-reading="2">TIRADA 2</button>
-    <button class="reading-btn" data-reading="3">TIRADA 3</button>
-    <button class="reading-btn" data-reading="4">TIRADA 4</button>
-    <button class="reading-btn" data-reading="5">TIRADA 5</button>
+  <h2 class="section-title">Tiradas de Tarot</h2>
+  
+  <!-- Pestañas -->
+  <div class="tabs">
+    <div class="tab active" data-tab="1">TIRADA 1</div>
+    <div class="tab" data-tab="2">TIRADA 2</div>
+    <div class="tab" data-tab="3">TIRADA 3</div>
+    <div class="tab" data-tab="4">TIRADA 4</div>
+    <div class="tab" data-tab="5">TIRADA 5</div>
   </div>
 
-  <!-- Área de cartas seleccionadas -->
-  <div class="cards-display">
-    <div class="card-slot"></div>
-    <div class="card-slot"></div>
-    <div class="card-slot"></div>
+  <!-- Contenido de cada pestaña -->
+  <div class="tab-content active" data-tab-content="1">
+    <div class="cards-display">
+      <div class="card-slot"></div>
+    </div>
   </div>
-  </section>
+  <div class="tab-content" data-tab-content="2">
+    <div class="cards-display">
+      <div class="card-slot"></div>
+      <div class="card-slot"></div>
+    </div>
+  </div>
+  <!-- ... Repite para las otras tiradas -->
+</section>
   
   <script src="scripts.js"></script>
 </body>
