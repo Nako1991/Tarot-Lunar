@@ -1,0 +1,88 @@
+/* Fondo general */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: sans-serif;
+}
+
+.hero {
+  background: url('fondo.png') no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Carta centrada */
+.card-container {
+  width: 200px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+/* Animaciones */
+@keyframes rotateCardSlow {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes rotateCardClick {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* Carta de tarot principal */
+.tarot-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  animation: rotateCardSlow 10s linear infinite;
+  transition: transform 0.8s;
+}
+
+/* Caras de la carta */
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.card-front {
+  background-image: url('carta-frente-corazon.png');
+}
+
+.card-back {
+  background-image: url('carta-dorso.png');
+  transform: rotateY(180deg);
+}
+
+/* Segunda sección para scroll */
+.second-section {
+  height: 100vh;
+  background-color: #111;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 20px;
+  text-align: center;
+}
