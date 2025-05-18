@@ -186,3 +186,63 @@ html {
   justify-content: center;
   color: #d4af37;
 }
+
+/* Diseño del corazón responsive */
+.heart-layout {
+  --card-width: min(22vw, 120px); /* Adaptable al ancho de pantalla */
+  --card-height: calc(var(--card-width) * 1.5); /* Proporción 3:2 */
+  
+  display: grid;
+  grid-template-areas:
+    ". top-left . top-right ."
+    "middle-left . . . middle-right"
+    ". . bottom . .";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2vh 0;
+}
+
+.heart-layout .card-slot {
+  width: var(--card-width);
+  height: var(--card-height);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px dashed #d4af37;
+  border-radius: 8px;
+  position: relative;
+  margin: 0 auto; /* Centrado en su celda de grid */
+}
+
+/* Posicionamiento absoluto para formar el corazón */
+.heart-layout .card-slot:nth-child(1) { grid-area: top-left; }
+.heart-layout .card-slot:nth-child(2) { grid-area: top-right; }
+.heart-layout .card-slot:nth-child(3) { grid-area: middle-left; }
+.heart-layout .card-slot:nth-child(4) { grid-area: middle-right; }
+.heart-layout .card-slot:nth-child(5) { grid-area: bottom; margin-top: 1vh; }
+
+/* Ajustes para móviles */
+@media (max-width: 600px) {
+  .heart-layout {
+    --card-width: min(25vw, 100px);
+    grid-template-areas:
+      "top-left . top-right"
+      ". bottom ."
+      "middle-left . middle-right";
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 95%;
+    padding: 1vh 0;
+  }
+  
+  .heart-layout .card-slot:nth-child(5) {
+    margin-top: 0.5vh;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 400px) {
+  .heart-layout {
+    --card-width: 22vw;
+  }
+}
