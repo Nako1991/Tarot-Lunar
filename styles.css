@@ -123,6 +123,8 @@ html {
 .tab-content {
   display: none;
   padding: 1rem;
+  width: 100%;
+  overflow: hidden;
   margin: 0 auto;
   background: rgba(26, 5, 37, 0.99);
   border-radius: 0 0 8px 8px;
@@ -203,6 +205,7 @@ html {
   max-width: 500px;
   margin: 0 auto;
   padding: 2vh 0;
+  justify-content: center;
 }
 
 .heart-layout .card-slot {
@@ -222,27 +225,95 @@ html {
 .heart-layout .card-slot:nth-child(4) { grid-area: middle-right; }
 .heart-layout .card-slot:nth-child(5) { grid-area: bottom; margin-top: 1vh; }
 
-/* Ajustes para móviles */
 @media (max-width: 600px) {
   .heart-layout {
-    --card-width: min(25vw, 100px);
+    --card-width: 20vw; /* Reducido de 25vw a 20vw */
+    --card-height: calc(var(--card-width) * 1.5);
+    
+    /* Resto del código se mantiene IGUAL */
+    display: grid;
     grid-template-areas:
-      "top-left . top-right"
-      ". bottom ."
-      "middle-left . middle-right";
-    grid-template-columns: 1fr 1fr 1fr;
+      ". top-left . top-right ."
+      "middle-left . . . middle-right"
+      ". . bottom . .";
+    grid-template-columns: 0.5fr 1fr 0.5fr 1fr 0.5fr;
+    grid-template-rows: auto auto auto;
     width: 95%;
-    padding: 1vh 0;
+    max-width: 300px;
+    padding: 10px 0;
   }
-  
+
+  /* Añadir márgenes negativos para compactar */
+  .heart-layout .card-slot:nth-child(1) {
+    margin-right: -5px; /* Más compacto */
+  }
+  .heart-layout .card-slot:nth-child(2) {
+    margin-left: -5px;
+  }
+  .heart-layout .card-slot:nth-child(3) {
+    margin-right: 5px; /* Reducido de 15px */
+  }
+  .heart-layout .card-slot:nth-child(4) {
+    margin-left: 5px;
+  }
   .heart-layout .card-slot:nth-child(5) {
-    margin-top: 0.5vh;
+    margin-top: 5px; /* Reducido de 10px */
   }
 }
 
-/* Para pantallas muy pequeñas */
+/* Para pantallas muy pequeñas (opcional) */
 @media (max-width: 400px) {
   .heart-layout {
-    --card-width: 22vw;
+    --card-width: 18vw; /* Aún más pequeño */
+    max-width: 280px;
+  }
+}@media (max-width: 600px) {
+  .heart-layout {
+    --card-width: 25vw;
+    --card-height: calc(var(--card-width) * 1.5);
+    
+    display: grid;
+    grid-template-areas:
+      ". top-left . top-right ."
+      "middle-left . . . middle-right"
+      ". . bottom . .";
+    grid-template-columns: 0.5fr 1fr 0.5fr 1fr 0.5fr;
+    grid-template-rows: auto auto auto;
+    width: 95%;
+    max-width: 300px;
+    padding: 10px 0;
+  }
+
+  .heart-layout .card-slot {
+    width: var(--card-width);
+    height: var(--card-height);
+    margin: 0;
+  }
+
+  /* Posiciones exactas para el corazón */
+  .heart-layout .card-slot:nth-child(1) {
+    grid-area: top-left;
+    justify-self: end;
+    margin-right: 5px;
+  }
+  .heart-layout .card-slot:nth-child(2) {
+    grid-area: top-right;
+    justify-self: start;
+    margin-left: 5px;
+  }
+  .heart-layout .card-slot:nth-child(3) {
+    grid-area: middle-left;
+    justify-self: end;
+    margin-right: 15px;
+  }
+  .heart-layout .card-slot:nth-child(4) {
+    grid-area: middle-right;
+    justify-self: start;
+    margin-left: 15px;
+  }
+  .heart-layout .card-slot:nth-child(5) {
+    grid-area: bottom;
+    justify-self: center;
+    margin-top: 10px;
   }
 }
