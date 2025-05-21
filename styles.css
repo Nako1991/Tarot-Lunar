@@ -122,15 +122,12 @@ html {
 /* --- Contenido de pestañas --- */
 .tab-content {
   display: none;
-  padding: 1rem;
   width: 100%;
-  overflow: hidden;
+  padding: 1rem 0; /* Reducir padding horizontal */
   margin: 0 auto;
   background: rgba(26, 5, 37, 0.99);
-  border-radius: 0 0 8px 8px;
-  animation: fadeIn 0.5s ease-out;
-  position: relative;
-  z-index: 1;
+  overflow: hidden;
+  text-align: center; /* Asegura herencia de centrado */
 }
 
 .tab-content.active {
@@ -191,23 +188,26 @@ html {
 
 /* Diseño del corazón responsive */
 .heart-layout {
-  --card-width: min(22vw, 120px); /* Adaptable al ancho de pantalla */
-  --card-height: calc(var(--card-width) * 1.5); /* Proporción 3:2 */
+  --card-width: min(22vw, 120px);
+  --card-height: calc(var(--card-width) * 1.5);
   
-  display: grid;
+  display: inline-grid; /* Cambiado a inline-grid */
   grid-template-areas:
     ". top-left . top-right ."
     "middle-left . . . middle-right"
     ". . bottom . .";
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto;
-  width: 90%;
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 2vh 0;
-  justify-content: center;
+  grid-template-columns: 
+    minmax(0, 1fr) 
+    minmax(0, 1fr) 
+    minmax(0, 1fr) 
+    minmax(0, 1fr) 
+    minmax(0, 1fr);
+  width: auto; /* Ancho según contenido */
+  max-width: 95%; /* Evita bordes pegados */
+  margin: 0 auto; /* Centrado real */
+  padding: 2vh 5%; /* Espaciado responsive */
+  box-sizing: border-box;
 }
-
 .heart-layout .card-slot {
   width: var(--card-width);
   height: var(--card-height);
